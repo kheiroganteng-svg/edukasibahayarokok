@@ -1,0 +1,2 @@
+# edukasibahayarokok
+bahaya
