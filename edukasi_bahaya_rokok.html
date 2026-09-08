@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindari Rokok - MTsN 1 Bogor</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            green: '#00875A',
+                            darkgreen: '#005C3E',
+                            teal: '#00B4D8',
+                            red: '#E53E3E',
+                            accent: '#FFB703',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-hero {
+            background: linear-gradient(135deg, #e6fffa 0%, #ebf8ff 50%, #f0fdf4 100%);
+        }
+        .organ-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .organ-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.15);
+        }
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.03); }
+        }
+        .pulse-effect {
+            animation: pulseGlow 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased leading-relaxed min-h-screen flex flex-col">
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-green flex items-center justify-center text-white font-bold text-xl shadow-md">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-base sm:text-lg text-slate-900 block leading-tight">MTsN 1 BOGOR</span>
+                        <span class="text-xs text-brand-green font-semibold tracking-wide">Kampus Edukasi Sehat</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-6 text-sm font-semibold text-slate-600">
+                    <a href="#hero" class="hover:text-brand-green transition">Beranda</a>
+                    <a href="#poster-sec" class="hover:text-brand-green transition">Poster Kampanye</a>
+                    <a href="#bahaya" class="hover:text-brand-green transition">Dampak Organ</a>
+                    <a href="#tips" class="hover:text-brand-green transition">Cara Mencegah</a>
+                    <a href="#kalkulator" class="hover:text-brand-green transition">Kalkulator</a>
+                    <a href="#kuis" class="hover:text-brand-green transition">Kuis Interaktif</a>
+                </div>
+
+                <a href="#kalkulator" class="bg-brand-red text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full shadow hover:bg-red-700 transition flex items-center gap-2">
+                    <i class="fa-solid fa-ban"></i> Stop Merokok
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="gradient-hero py-12 lg:py-20 border-b border-slate-200 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-100 border border-red-200 text-brand-red text-xs sm:text-sm font-extrabold shadow-sm">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Kampanye Kesehatan Siswa
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        HINDARI ROKOK <br>
+                        <span class="text-brand-green">Jaga Kesehatan Diri</span> Demi Masa Depan
+                    </h1>
+                    
+                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
+                        Merokok terbukti merusak hampir setiap organ tubuh dan menyebabkan berbagai penyakit kronis yang membahayakan nyawa. Mari tingkatkan kesadaran bersama MTsN 1 Bogor untuk mewujudkan generasi penerus yang sehat, cerdas, dan berprestasi!
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#bahaya" class="bg-brand-green hover:bg-brand-darkgreen text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-heart-pulse"></i> Pelajari Dampaknya
+                        </a>
+                        <button onclick="openPosterModal()" class="bg-white hover:bg-slate-100 text-slate-800 font-bold px-6 py-3.5 rounded-xl border border-slate-300 shadow-sm transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-expand text-brand-green"></i> Lihat Poster Ukuran Penuh
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Poster Vector Display -->
+                <div class="lg:col-span-5 flex justify-center" id="poster-sec">
+                    <div class="relative group max-w-sm w-full bg-white p-3 rounded-2xl shadow-xl border border-slate-200 hover:shadow-2xl transition duration-300">
+                        <div class="overflow-hidden rounded-xl bg-slate-100 relative cursor-pointer shadow-inner" onclick="openPosterModal()">
+                            
+                            <!-- Embedded Poster Vector SVG -->
+                            <svg viewBox="0 0 600 800" class="w-full h-auto object-cover rounded-xl shadow group-hover:scale-105 transition duration-500">
+                                <rect width="600" height="800" fill="#E2F5F5"/>
+                                
+                                <!-- Background Hills -->
+                                <path d="M0,680 Q150,640 300,680 T600,660 L600,800 L0,800 Z" fill="#92D050"/>
+                                <path d="M0,710 Q200,670 400,720 T600,700 L600,800 L0,800 Z" fill="#70AD47"/>
+                                
+                                <!-- Header Ban Sign -->
+                                <g transform="translate(40, 20)">
+                                    <circle cx="80" cy="80" r="65" fill="none" stroke="#E53E3E" stroke-width="20"/>
+                                    <line x1="34" y1="34" x2="126" y2="126" stroke="#E53E3E" stroke-width="20"/>
+                                    <rect x="55" y="70" width="60" height="18" fill="#718096" rx="4" transform="rotate(-45 85 79)"/>
+                                </g>
+
+                                <!-- Title Header -->
+                                <text x="200" y="90" font-family="Inter, sans-serif" font-weight="900" font-size="46" fill="#1A202C" font-style="italic">HINDARI</text>
+                                <text x="200" y="160" font-family="Inter, sans-serif" font-weight="900" font-size="52" fill="#1A202C" font-style="italic">ROKOK</text>
+
+                                <!-- Logo MTsN 1 Bogor Badge -->
+                                <g transform="translate(470, 25)">
+                                    <polygon points="40,0 75,20 75,60 40,80 5,60 5,20" fill="#00875A" stroke="#FFFFFF" stroke-width="3"/>
+                                    <circle cx="40" cy="40" r="28" fill="#005C3E"/>
+                                    <text x="40" y="32" font-family="sans-serif" font-weight="bold" font-size="8" fill="#FFFFFF" text-anchor="middle">MTS N 1 BOGOR</text>
+                                    <path d="M25,48 Q40,40 55,48 L55,54 Q40,46 25,54 Z" fill="#FFFFFF"/>
+                                    <text x="40" y="65" font-family="sans-serif" font-size="6" fill="#FFD700" text-anchor="middle">KABUPATEN BOGOR</text>
+                                </g>
+
+                                <!-- X-Ray Lung Illustration Box -->
+                                <g transform="translate(25, 230)">
+                                    <rect width="210" height="230" fill="#1A202C" rx="12" stroke="#FFFFFF" stroke-width="4"/>
+                                    <!-- Man Silhouette & Lungs -->
+                                    <path d="M105,25 Q125,25 125,50 Q125,75 105,75 Q85,75 85,50 Q85,25 105,25 Z" fill="#2D3748"/>
+                                    <path d="M40,230 L50,110 Q105,90 160,110 L170,230 Z" fill="#2D3748"/>
+                                    <!-- Lungs X-Ray White Effect -->
+                                    <path d="M80,120 Q60,130 65,170 Q75,200 95,180 Q100,140 80,120 Z" fill="#E2E8F0" opacity="0.9"/>
+                                    <path d="M130,120 Q150,130 145,170 Q135,200 115,180 Q110,140 130,120 Z" fill="#E2E8F0" opacity="0.9"/>
+                                    <!-- Ribs Lines -->
+                                    <line x1="80" y1="135" x2="100" y2="138" stroke="#1A202C" stroke-width="3"/>
+                                    <line x1="80" y1="150" x2="100" y2="153" stroke="#1A202C" stroke-width="3"/>
+                                    <line x1="130" y1="135" x2="110" y2="138" stroke="#1A202C" stroke-width="3"/>
+                                    <line x1="130" y1="150" x2="110" y2="153" stroke="#1A202C" stroke-width="3"/>
+                                </g>
+
+                                <!-- Text Statement Top Right -->
+                                <foreignObject x="250" y="240" width="320" height="220">
+                                    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, sans-serif; font-weight: 800; font-size: 20px; color: #000000; line-height: 1.4;">
+                                        Merokok terbukti merusak hampir setiap organ tubuh dan menyebabkan berbagai penyakit kronis yang membahayakan nyawa.
+                                    </div>
+                                </foreignObject>
+
+                                <!-- Section Heading Bottom Left -->
+                                <text x="25" y="520" font-family="Inter, sans-serif" font-weight="900" font-size="28" fill="#000000">CARA MENGHINDARI ROKOK</text>
+                                
+                                <foreignObject x="25" y="540" width="550" height="110">
+                                    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, sans-serif; font-weight: 700; font-size: 19px; color: #1A202C; line-height: 1.35;">
+                                        Cara mencegah dan menghentikan kebiasaan merokok dapat dilakukan dengan membulatkan tekad yang kuat serta menghindari berbagai faktor pemicunya.
+                                    </div>
+                                </foreignObject>
+
+                                <!-- School Building Illustration -->
+                                <g transform="translate(25, 650)">
+                                    <!-- Main Building -->
+                                    <rect x="20" y="40" width="160" height="80" fill="#ECC94B" stroke="#D69E2E" stroke-width="2"/>
+                                    <polygon points="100,0 15,40 185,40" fill="#C53030"/>
+                                    <!-- Clock & Flag -->
+                                    <rect x="97" y="-20" width="6" height="20" fill="#718096"/>
+                                    <polygon points="103,-20 125,-12 103,-4" fill="#E53E3E"/>
+                                    <circle cx="100" cy="20" r="12" fill="#FFFFFF" stroke="#718096" stroke-width="2"/>
+                                    <line x1="100" y1="20" x2="100" y2="13" stroke="#1A202C" stroke-width="2"/>
+                                    <line x1="100" y1="20" x2="105" y2="20" stroke="#1A202C" stroke-width="2"/>
+                                    <!-- Door & Windows -->
+                                    <rect x="85" y="80" width="30" height="40" fill="#FFFFFF" stroke="#718096"/>
+                                    <rect x="35" y="55" width="25" height="20" fill="#FFFFFF"/>
+                                    <rect x="140" y="55" width="25" height="20" fill="#FFFFFF"/>
+                                </g>
+
+                                <!-- Message Call to Action Bottom -->
+                                <foreignObject x="220" y="665" width="240" height="110">
+                                    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, sans-serif; font-weight: 800; font-size: 19px; color: #000000; text-align: center; line-height: 1.3;">
+                                        jaga kesehatan diri demi kebahagiaan di masa depan.
+                                    </div>
+                                </foreignObject>
+
+                                <!-- Students Vector Illustration -->
+                                <g transform="translate(460, 710)">
+                                    <!-- Girl Student -->
+                                    <circle cx="20" cy="15" r="12" fill="#FFD3B6"/>
+                                    <path d="M10,27 C10,27 20,25 30,27 L32,55 L8,55 Z" fill="#E53E3E"/>
+                                    <!-- Boy Student -->
+                                    <circle cx="60" cy="15" r="12" fill="#FFD3B6"/>
+                                    <path d="M50,27 C50,27 60,25 70,27 L70,55 L50,55 Z" fill="#3182CE"/>
+                                </g>
+                            </svg>
+
+                            <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center text-white p-4">
+                                <i class="fa-solid fa-magnifying-glass-plus text-4xl mb-2"></i>
+                                <span class="text-sm font-bold bg-brand-green/90 px-3 py-1 rounded-full">Klik untuk Memperbesar</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 text-center flex items-center justify-between px-2">
+                            <span class="text-xs font-bold text-slate-500"><i class="fa-solid fa-shield-halved text-brand-green mr-1"></i> Poster Resmi MTsN 1 Bogor</span>
+                            <button onclick="openPosterModal()" class="text-xs font-extrabold text-brand-green hover:underline flex items-center gap-1">
+                                Perbesar <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="poster-modal" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4 transition-all duration-300">
+        <div class="relative max-w-3xl w-full bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+            <div class="bg-slate-900 text-white px-6 py-4 flex justify-between items-center border-b border-slate-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center text-white text-sm font-bold">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">Poster Imbauan MTsN 1 Bogor</h4>
+                        <p class="text-xs text-slate-400">Kampanye Edukasi Hindari Rokok</p>
+                    </div>
+                </div>
+                <button onclick="closePosterModal()" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <div class="p-4 bg-slate-950 flex justify-center max-h-[80vh] overflow-y-auto">
+                <div class="w-full max-w-md">
+                    <!-- Scaled SVG Image inside modal -->
+                    <svg viewBox="0 0 600 800" class="w-full h-auto rounded-xl shadow-2xl">
+                        <rect width="600" height="800" fill="#E2F5F5"/>
+                        <path d="M0,680 Q150,640 300,680 T600,660 L600,800 L0,800 Z" fill="#92D050"/>
+                        <path d="M0,710 Q200,670 400,720 T600,700 L600,800 L0,800 Z" fill="#70AD47"/>
+                        <g transform="translate(40, 20)">
+                            <circle cx="80" cy="80" r="65" fill="none" stroke="#E53E3E" stroke-width="20"/>
+                            <line x1="34" y1="34" x2="126" y2="126" stroke="#E53E3E" stroke-width="20"/>
+                            <rect x="55" y="70" width="60" height="18" fill="#718096" rx="4" transform="rotate(-45 85 79)"/>
+                        </g>
+                        <text x="200" y="90" font-family="Inter, sans-serif" font-weight="900" font-size="46" fill="#1A202C" font-style="italic">HINDARI</text>
+                        <text x="200" y="160" font-family="Inter, sans-serif" font-weight="900" font-size="52" fill="#1A202C" font-style="italic">ROKOK</text>
+                        <g transform="translate(470, 25)">
+                            <polygon points="40,0 75,20 75,60 40,80 5,60 5,20" fill="#00875A" stroke="#FFFFFF" stroke-width="3"/>
+                            <circle cx="40" cy="40" r="28" fill="#005C3E"/>
+                            <text x="40" y="32" font-family="sans-serif" font-weight="bold" font-size="8" fill="#FFFFFF" text-anchor="middle">MTS N 1 BOGOR</text>
+                            <path d="M25,48 Q40,40 55,48 L55,54 Q40,46 25,54 Z" fill="#FFFFFF"/>
+                            <text x="40" y="65" font-family="sans-serif" font-size="6" fill="#FFD700" text-anchor="middle">KABUPATEN BOGOR</text>
+                        </g>
+                        <g transform="translate(25, 230)">
+                            <rect width="210" height="230" fill="#1A202C" rx="12" stroke="#FFFFFF" stroke-width="4"/>
+                            <path d="M105,25 Q125,25 125,50 Q125,75 105,75 Q85,75 85,50 Q85,25 105,25 Z" fill="#2D3748"/>
+                            <path d="M40,230 L50,110 Q105,90 160,110 L170,230 Z" fill="#2D3748"/>
+                            <path d="M80,120 Q60,130 65,170 Q75,200 95,180 Q100,140 80,120 Z" fill="#E2E8F0" opacity="0.9"/>
+                            <path d="M130,120 Q150,130 145,170 Q135,200 115,180 Q110,140 130,120 Z" fill="#E2E8F0" opacity="0.9"/>
+                        </g>
+                        <foreignObject x="250" y="240" width="320" height="220">
+                            <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, sans-serif; font-weight: 800; font-size: 20px; color: #000000; line-height: 1.4;">
+                                Merokok terbukti merusak hampir setiap organ tubuh dan menyebabkan berbagai penyakit kronis yang membahayakan nyawa.
+                            </div>
+                        </foreignObject>
+                        <text x="25" y="520" font-family="Inter, sans-serif" font-weight="900" font-size="28" fill="#000000">CARA MENGHINDARI ROKOK</text>
+                        <foreignObject x="25" y="540" width="550" height="110">
+                            <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, sans-serif; font-weight: 700; font-size: 19px; color: #1A202C; line-height: 1.35;">
+                                Cara mencegah dan menghentikan kebiasaan merokok dapat dilakukan dengan membulatkan tekad yang kuat serta menghindari berbagai faktor pemicunya.
+                            </div>
+                        </foreignObject>
+                        <g transform="translate(25, 650)">
+                            <rect x="20" y="40" width="160" height="80" fill="#ECC94B" stroke="#D69E2E" stroke-width="2"/>
+                            <polygon points="100,0 15,40 185,40" fill="#C53030"/>
+                            <circle cx="100" cy="20" r="12" fill="#FFFFFF" stroke="#718096" stroke-width="2"/>
+                        </g>
+                        <foreignObject x="220" y="665" width="240" height="110">
+                            <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, sans-serif; font-weight: 800; font-size: 19px; color: #000000; text-align: center; line-height: 1.3;">
+                                jaga kesehatan diri demi kebahagiaan di masa depan.
+                            </div>
+                        </foreignObject>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="bg-slate-900 px-6 py-3 border-t border-slate-800 text-center">
+                <p class="text-xs text-slate-400"><i>"Jaga kesehatan diri demi kebahagiaan di masa depan."</i> — MTsN 1 BOGOR</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="bahaya" class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs uppercase font-extrabold tracking-widest text-brand-red mb-2 block">Pesan Poster Utama</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Merokok Merusak Seluruh Organ Tubuh</h2>
+                <p class="mt-3 text-slate-600 text-sm sm:text-base">
+                    Sebagaimana tercantum dalam poster kampanye, asap rokok mengandung puluhan zat beracun yang merusak organ vital secara permanen. Klik pada organ di bawah ini untuk melihat detailnya:
+                </p>
+            </div>
+
+            <!-- Organ Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="organ-card bg-slate-50 border border-slate-200 rounded-2xl p-6 cursor-pointer hover:border-brand-red" onclick="showOrganDetail('paru')">
+                    <div class="w-14 h-14 bg-red-100 text-brand-red rounded-2xl flex items-center justify-center text-2xl mb-4 shadow-sm">
+                        <i class="fa-solid fa-lungs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">Paru-Paru</h3>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">Pengendapan tar merusak silia dan memicu penyakit paru kronis.</p>
+                    <span class="inline-flex items-center mt-4 text-xs font-bold text-brand-red">
+                        Pelajari Kerusakan <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </span>
+                </div>
+
+                <div class="organ-card bg-slate-50 border border-slate-200 rounded-2xl p-6 cursor-pointer hover:border-brand-red" onclick="showOrganDetail('jantung')">
+                    <div class="w-14 h-14 bg-red-100 text-brand-red rounded-2xl flex items-center justify-center text-2xl mb-4 shadow-sm">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">Jantung & Darah</h3>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">Penyempitan pembuluh darah dan risiko serangan jantung mendadak.</p>
+                    <span class="inline-flex items-center mt-4 text-xs font-bold text-brand-red">
+                        Pelajari Kerusakan <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </span>
+                </div>
+
+                <div class="organ-card bg-slate-50 border border-slate-200 rounded-2xl p-6 cursor-pointer hover:border-brand-red" onclick="showOrganDetail('otak')">
+                    <div class="w-14 h-14 bg-red-100 text-brand-red rounded-2xl flex items-center justify-center text-2xl mb-4 shadow-sm">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">Otak & Saraf</h3>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">Meningkatkan risiko serangan stroke dan pelemahan penyumbatan darah.</p>
+                    <span class="inline-flex items-center mt-4 text-xs font-bold text-brand-red">
+                        Pelajari Kerusakan <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </span>
+                </div>
+
+                <div class="organ-card bg-slate-50 border border-slate-200 rounded-2xl p-6 cursor-pointer hover:border-brand-red" onclick="showOrganDetail('mulut')">
+                    <div class="w-14 h-14 bg-red-100 text-brand-red rounded-2xl flex items-center justify-center text-2xl mb-4 shadow-sm">
+                        <i class="fa-solid fa-teeth-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">Mulut & Gigi</h3>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">Kanker mulut, gusi rusak, bau napas tidak sedap, dan gigi kuning.</p>
+                    <span class="inline-flex items-center mt-4 text-xs font-bold text-brand-red">
+                        Pelajari Kerusakan <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- Organ Detail Display Card -->
+            <div id="organ-detail-box" class="mt-8 p-6 sm:p-8 bg-red-50 border border-red-200 rounded-2xl hidden transition-all duration-300">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-center gap-4">
+                        <div id="modal-icon" class="text-4xl text-brand-red"></div>
+                        <div>
+                            <h3 id="modal-title" class="text-2xl font-bold text-slate-900"></h3>
+                            <p id="modal-sub" class="text-xs text-red-700 font-bold tracking-wide uppercase"></p>
+                        </div>
+                    </div>
+                    <button onclick="closeOrganDetail()" class="text-slate-400 hover:text-slate-600 p-1">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+                <p id="modal-desc" class="mt-4 text-slate-700 text-sm sm:text-base leading-relaxed"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tips" class="py-16 bg-slate-100 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs uppercase font-extrabold tracking-widest text-brand-green mb-2 block">Solusi Dari Poster</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Cara Menghindari & Menghentikan Merokok</h2>
+                <p class="mt-3 text-slate-600 text-sm sm:text-base">
+                    <i>"Cara mencegah dan menghentikan kebiasaan merokok dapat dilakukan dengan membulatkan tekad yang kuat serta menghindari berbagai faktor pemicunya."</i>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-green-100 text-brand-green rounded-xl flex items-center justify-center font-black text-xl mb-6">1</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Bulatkan Tekad & Niat Kuat</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Miliki alasan utama yang jelas (kesehatan, masa depan, dan keluarga) untuk mempertahankan komitmen tidak pernah menyentuh rokok.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-brand-green">
+                        <i class="fa-solid fa-check-circle mr-1"></i> Komitmen Diri Sendiri
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-green-100 text-brand-green rounded-xl flex items-center justify-center font-black text-xl mb-6">2</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Hindari Lingkungan Pemicu</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Jauhi pergaulan atau kumpul-kumpul yang membiasakan rokok. Berani berkata "TIDAK" dengan tegas saat ditawari oleh rekan seandainya ada pemicu.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-brand-green">
+                        <i class="fa-solid fa-shield-cat mr-1"></i> Proteksi Lingkungan
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-green-100 text-brand-green rounded-xl flex items-center justify-center font-black text-xl mb-6">3</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Aktivitas Positif & Sekolah</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Isi waktu luang dengan berolahraga, ekstrakurikuler di MTsN 1 Bogor, atau hobi produktif yang menyehatkan fisik dan mental.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-brand-green">
+                        <i class="fa-solid fa-graduation-cap mr-1"></i> Prestasi Sekolah
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="kalkulator" class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <div class="text-center mb-8">
+                        <span class="inline-block px-3 py-1 bg-brand-green/30 text-green-300 text-xs font-bold rounded-full mb-2">Simulasi Keuangan</span>
+                        <h2 class="text-2xl sm:text-3xl font-black">Kalkulator Penghematan Tanpa Rokok</h2>
+                        <p class="text-slate-400 text-xs sm:text-sm mt-2">
+                            Berapa banyak uang yang bisa kamu alokasikan untuk pendidikan dan masa depanmu jika tidak membeli rokok?
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 mb-2">Jumlah Bungkus Rokok / Hari</label>
+                            <input type="number" id="packs" value="1" min="1" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-green font-bold">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 mb-2">Harga Per Bungkus (Rp)</label>
+                            <input type="number" id="price" value="30000" step="1000" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-green font-bold">
+                        </div>
+                    </div>
+
+                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                        <div class="bg-slate-800/90 p-4 rounded-xl border border-slate-700">
+                            <span class="text-xs text-slate-400 block font-semibold">1 Bulan Tanpa Rokok</span>
+                            <span id="savings-month" class="text-xl font-black text-green-400 mt-1 block">Rp 900.000</span>
+                        </div>
+                        <div class="bg-slate-800/90 p-4 rounded-xl border border-slate-700">
+                            <span class="text-xs text-slate-400 block font-semibold">1 Tahun Tanpa Rokok</span>
+                            <span id="savings-year" class="text-2xl font-black text-green-400 mt-1 block">Rp 10.950.000</span>
+                        </div>
+                        <div class="bg-slate-800/90 p-4 rounded-xl border border-slate-700">
+                            <span class="text-xs text-slate-400 block font-semibold">5 Tahun Tanpa Rokok</span>
+                            <span id="savings-5years" class="text-2xl font-black text-yellow-400 mt-1 block">Rp 54.750.000</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 text-center text-xs text-slate-400 bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
+                        💡 <strong>Manfaat Nyata:</strong> Uang ini bisa kamu tabung untuk laptop baru, biaya pendidikan tinggi, atau modal wirausaha masa depan!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kuis" class="py-16 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-xs uppercase font-extrabold tracking-widest text-brand-green">Uji Pemahaman</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Kuis Bahaya Rokok MTsN 1 Bogor</h2>
+                <p class="text-slate-600 text-sm mt-2">Uji wawasanmu berdasarkan materi kampanye di atas!</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div id="quiz-container">
+                    <div class="flex justify-between items-center mb-4">
+                        <span id="quiz-progress" class="text-xs font-bold text-brand-green bg-green-50 px-3 py-1 rounded-full">Pertanyaan 1 dari 3</span>
+                        <span id="quiz-score" class="text-xs font-bold text-slate-500">Skor: 0</span>
+                    </div>
+
+                    <h3 id="quiz-question" class="text-lg font-bold text-slate-900 mb-6"> Loading Pertanyaan...</h3>
+
+                    <div id="quiz-options" class="space-y-3">
+                        <!-- Options filled via Javascript -->
+                    </div>
+
+                    <div id="quiz-feedback" class="mt-4 p-4 rounded-xl hidden text-sm font-semibold"></div>
+
+                    <button id="next-btn" onclick="nextQuestion()" class="mt-6 w-full bg-brand-green text-white font-bold py-3.5 rounded-xl shadow hover:bg-brand-darkgreen transition hidden">
+                        Pertanyaan Berikutnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+
+                <div id="quiz-result" class="text-center py-6 hidden">
+                    <div class="w-16 h-16 bg-green-100 text-brand-green rounded-full flex items-center justify-center text-3xl mx-auto mb-4 shadow">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-slate-900">Kuis Selesai!</h3>
+                    <p id="final-score-text" class="text-slate-600 mt-2 text-lg font-semibold"></p>
+                    <p class="text-xs text-slate-500 mt-2">Terima kasih telah berpartisipasi mendukung lingkungan bebas rokok di MTsN 1 Bogor!</p>
+                    <button onclick="restartQuiz()" class="mt-6 bg-brand-green text-white font-bold px-6 py-3 rounded-xl shadow hover:bg-brand-darkgreen transition">
+                        Ulangi Kuis
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-brand-green text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center space-y-4">
+            <i class="fa-solid fa-heart-pulse text-4xl opacity-90"></i>
+            <h2 class="text-2xl sm:text-3xl font-black">"Jaga kesehatan diri demi kebahagiaan di masa depan."</h2>
+            <p class="text-xs sm:text-sm text-green-100 max-w-xl mx-auto">
+                Semboyan Resmi Kampanye Kesehatan Remaja & Siswa MTsN 1 Bogor.
+            </p>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="w-12 h-12 rounded-full bg-brand-green flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4 shadow">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h3 class="text-lg font-extrabold">MTsN 1 BOGOR</h3>
+            <p class="text-slate-400 text-xs sm:text-sm max-w-md mx-auto mt-2">
+                Jl. Raya Parung No. 1, Kabupaten Bogor, Jawa Barat.
+            </p>
+            <div class="my-6 border-t border-slate-800 max-w-sm mx-auto"></div>
+            <p class="text-xs text-slate-500">
+                &copy; 2026 MTsN 1 BOGOR. Seluruh Hak Cipta Dilindungi. Kampanye Hidup Sehat Tanpa Rokok.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Modal Handlers
+        function openPosterModal() {
+            document.getElementById('poster-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePosterModal() {
+            document.getElementById('poster-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('poster-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePosterModal();
+            }
+        });
+
+        // Organ Damage Interactive Data
+        const organData = {
+            paru: {
+                title: "Kerusakan Paru-Paru",
+                sub: "Organ Pernapasan Utama",
+                icon: "<i class='fa-solid fa-lungs'></i>",
+                desc: "Asap rokok yang dihirup mengendapkan tar di dalam alveolus. Hal ini merusak bulu halus silia penapis racun, memicu penyakit Paru Obstruktif Kronis (PPOK), bronkitis kronis, emfisema, hingga Kanker Paru-Paru yang mematikan."
+            },
+            jantung: {
+                title: "Kerusakan Jantung & Pembuluh Darah",
+                sub: "Sistem Sirkulasi Darah",
+                icon: "<i class='fa-solid fa-heart-pulse'></i>",
+                desc: "Kandungan nikotin menyempitkan pembuluh darah, sementara Karbon Monoksida (CO) mengikat oksigen dalam darah. Ini memaksa jantung bekerja ekstra keras, meningkatkan risiko serangan jantung mendadak dan hipertensi."
+            },
+            otak: {
+                title: "Kerusakan Otak & Saraf",
+                sub: "Pusat Kendali Tubuh",
+                icon: "<i class='fa-solid fa-brain'></i>",
+                desc: "Merokok dapat memicu pengerasan arteri di otak. Hal ini meningkatkan risiko terjadinya penyumbatan atau pecahnya pembuluh darah otak (Aneurisma) yang memicu Stroke fatal dan kelumpuhan."
+            },
+            mulut: {
+                title: "Kerusakan Mulut & Gigi",
+                sub: "Indera Pengecap & Pencernaan",
+                icon: "<i class='fa-solid fa-teeth-open'></i>",
+                desc: "Bahan kimia beracun merusak jaringan gusi (Periodontitis), menyebabkan bau napas tidak sedap (Halitosis), timbunan plak kuning permanen pada gigi, serta meningkatkan risiko kanker bibir, lidah, dan tenggorokan."
+            }
+        };
+
+        function showOrganDetail(key) {
+            const item = organData[key];
+            document.getElementById('modal-title').innerText = item.title;
+            document.getElementById('modal-sub').innerText = item.sub;
+            document.getElementById('modal-icon').innerHTML = item.icon;
+            document.getElementById('modal-desc').innerText = item.desc;
+            document.getElementById('organ-detail-box').classList.remove('hidden');
+        }
+
+        function closeOrganDetail() {
+            document.getElementById('organ-detail-box').classList.add('hidden');
+        }
+
+        // Savings Calculator
+        const packsInput = document.getElementById('packs');
+        const priceInput = document.getElementById('price');
+
+        function updateSavings() {
+            const packs = Math.max(0, parseFloat(packsInput.value) || 0);
+            const price = Math.max(0, parseFloat(priceInput.value) || 0);
+
+            const daily = packs * price;
+            const monthly = daily * 30;
+            const yearly = daily * 365;
+            const fiveYear = yearly * 5;
+
+            document.getElementById('savings-month').innerText = "Rp " + monthly.toLocaleString('id-ID');
+            document.getElementById('savings-year').innerText = "Rp " + yearly.toLocaleString('id-ID');
+            document.getElementById('savings-5years').innerText = "Rp " + fiveYear.toLocaleString('id-ID');
+        }
+
+        packsInput.addEventListener('input', updateSavings);
+        priceInput.addEventListener('input', updateSavings);
+
+        // Quiz Logic
+        const quizData = [
+            {
+                question: "Apa pesan utama kampanye 'Hindari Rokok' dari MTsN 1 Bogor?",
+                options: [
+                    "Merokok dapat merusak hampir setiap organ tubuh & membahayakan nyawa",
+                    "Merokok hanya berbahaya jika dilakukan lebih dari 5 bungkus sehari",
+                    "Merokok aman dilakukan oleh remaja",
+                    "Merokok hanya menyebabkan batuk biasa"
+                ],
+                answer: 0
+            },
+            {
+                question: "Bagaimana cara mencegah dan menghentikan kebiasaan merokok sesuai materi kampanye?",
+                options: [
+                    "Hanya merokok saat berkumpul dengan teman dekat",
+                    "Membulatkan tekad yang kuat serta menghindari faktor pemicunya",
+                    "Mengganti rokok dengan vape tanpa batas",
+                    "Menunggu hingga usia tua baru berhenti"
+                ],
+                answer: 1
+            },
+            {
+                question: "Semboyan ajakan positif MTsN 1 Bogor di akhir materi poster adalah...",
+                options: [
+                    "Jaga kesehatan diri demi kebahagiaan di masa depan",
+                    "Merokok adalah pilihan masing-masing",
+                    "Nanti saja memikirkan kesehatan",
+                    "Belanja rokok lebih hemat daripada buku"
+                ],
+                answer: 0
+            }
+        ];
+
+        let currentQIndex = 0;
+        let quizScore = 0;
+
+        function renderQuestion() {
+            const current = quizData[currentQIndex];
+            document.getElementById('quiz-progress').innerText = `Pertanyaan ${currentQIndex + 1} dari ${quizData.length}`;
+            document.getElementById('quiz-question').innerText = current.question;
+
+            const optsBox = document.getElementById('quiz-options');
+            optsBox.innerHTML = '';
+
+            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('next-btn').classList.add('hidden');
+
+            current.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-xl border border-slate-200 hover:border-brand-green hover:bg-green-50 transition text-sm font-semibold text-slate-800";
+                btn.innerText = opt;
+                btn.onclick = () => selectQuizAnswer(idx);
+                optsBox.appendChild(btn);
+            });
+        }
+
+        function selectQuizAnswer(selectedIdx) {
+            const current = quizData[currentQIndex];
+            const feedback = document.getElementById('quiz-feedback');
+            const btns = document.getElementById('quiz-options').children;
+
+            for (let btn of btns) {
+                btn.disabled = true;
+                btn.classList.add('opacity-60');
+            }
+
+            if (selectedIdx === current.answer) {
+                quizScore += 10;
+                feedback.className = "mt-4 p-4 rounded-xl text-sm font-semibold bg-green-100 text-green-900 border border-green-200";
+                feedback.innerText = "✓ Tepat sekali! Jawaban Anda benar.";
+            } else {
+                feedback.className = "mt-4 p-4 rounded-xl text-sm font-semibold bg-red-100 text-red-900 border border-red-200";
+                feedback.innerText = "✕ Kurang tepat. Jawaban yang benar adalah: " + current.options[current.answer];
+            }
+
+            document.getElementById('quiz-score').innerText = `Skor: ${quizScore}`;
+            feedback.classList.remove('hidden');
+            document.getElementById('next-btn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQIndex++;
+            if (currentQIndex < quizData.length) {
+                renderQuestion();
+            } else {
+                showFinalResults();
+            }
+        }
+
+        function showFinalResults() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            document.getElementById('final-score-text').innerText = `Kamu berhasil mendapatkan skor ${quizScore} dari total ${quizData.length * 10} poin!`;
+        }
+
+        function restartQuiz() {
+            currentQIndex = 0;
+            quizScore = 0;
+            document.getElementById('quiz-score').innerText = `Skor: 0`;
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-container').classList.remove('hidden');
+            renderQuestion();
+        }
+
+        window.onload = function() {
+            renderQuestion();
+            updateSavings();
+        };
+    </script>
+</body>
+</html>
